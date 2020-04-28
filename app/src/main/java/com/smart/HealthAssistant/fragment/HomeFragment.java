@@ -13,15 +13,24 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.smart.HealthAssistant.R;
+import com.smart.HealthAssistant.bean.MsgInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment{
+
+    List<MsgInfo> msgInfoList = new ArrayList<>();
+
+    ListView mMsgListview;
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
