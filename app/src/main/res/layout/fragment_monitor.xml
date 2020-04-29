@@ -14,9 +14,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="脉搏模式"
-            android:background="@android:color/darker_gray"
-            android:id="@+id/pulse_btn"
+            android:text="心电模式"
+            android:background="@android:color/holo_red_light"
+            android:id="@+id/ecg_btn"
             android:layout_margin="5dp"
             android:textColor="@android:color/white"
             />
@@ -24,9 +24,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="心电模式"
-            android:background="@color/colorAccent"
-            android:id="@+id/ecg_btn"
+            android:text="体温模式"
+            android:background="@android:color/darker_gray"
+            android:id="@+id/temp_btn"
             android:layout_margin="5dp"
             android:textColor="@android:color/white"
             />
@@ -45,6 +45,13 @@
             android:layout_weight="1"
             android:id="@+id/ecg_view"
             />
+        <com.smart.HealthAssistant.view.TempView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/temp_view"
+            android:visibility="gone"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,11 +59,12 @@
             android:text="体温：36.1C"
             android:textColor="@android:color/black"
             android:textSize="25dp"
+            android:visibility="gone"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/pulse_tv"
+            android:id="@+id/ecg_tv"
             android:text="脉搏：84次/分"
             android:textColor="@android:color/black"
             android:textSize="25dp"
