@@ -18,7 +18,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.smart.HealthAssistant.R;
+import com.smart.HealthAssistant.adpater.MsgInfoAdapter;
 import com.smart.HealthAssistant.bean.MsgInfo;
+import com.smart.HealthAssistant.data.DBManger;
+import com.smart.HealthAssistant.data.DefaultDataFacotry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,7 @@ public class HomeFragment extends Fragment{
 
     ListView mMsgListview;
 
+    MsgInfoAdapter mAdapter;
 
 
     @Override
@@ -51,10 +55,13 @@ public class HomeFragment extends Fragment{
     }
 
     public void initView(View view){
-
+        mMsgListview = view.findViewById(R.id.home_listview);
     };
 
     public void initData() {
+        msgInfoList = DBManger.getInstance(getContext()).mDefaultDataFacotry.mMsgInfoList;
+        mAdapter = new MsgInfoAdapter(getContext(),msgInfoList);
+        mMsgListview.setAdapter(mAdapter);
 
     }
 

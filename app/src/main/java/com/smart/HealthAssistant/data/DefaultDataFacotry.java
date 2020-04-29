@@ -40,7 +40,7 @@ public class DefaultDataFacotry {
             R.drawable.p4,
     };
 
-    List<MsgInfo> mMsgInfoList = new ArrayList<>();
+    public List<MsgInfo> mMsgInfoList = new ArrayList<>();
 
     public DefaultDataFacotry(){
         for (int i=0;i<DEFAULT_CONTENT.length;i++){

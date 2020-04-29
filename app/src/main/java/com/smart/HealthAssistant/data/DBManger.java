@@ -18,7 +18,7 @@ public class DBManger {
     private Context mContext;
     private SQLiteDbHelper mDBHelper;
     public User mUser;
-
+    public DefaultDataFacotry mDefaultDataFacotry;
     public static  DBManger instance;
 
     public static DBManger getInstance(Context mContext){
@@ -31,6 +31,7 @@ public class DBManger {
     public DBManger(Context mContext){
         this.mContext = mContext;
         mDBHelper = new SQLiteDbHelper(mContext);
+        mDefaultDataFacotry = new DefaultDataFacotry();
     }
 
 

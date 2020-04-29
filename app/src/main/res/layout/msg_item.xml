@@ -7,7 +7,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/msg_pic"
-        android:src="@drawable/p1"
+        android:background="@drawable/p1"
         >
     </ImageView>
     <TextView
@@ -16,6 +16,7 @@
         android:id="@+id/msg_title"
         android:text="国庆长假健康攻略！"
         android:textSize="25dp"
+        android:textColor="@android:color/black"
         android:layout_toRightOf="@+id/msg_pic"
         android:layout_margin="3dp"
         ></TextView>

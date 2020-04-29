@@ -1,6 +1,8 @@
 package com.smart.HealthAssistant.adpater;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smart.HealthAssistant.R;
+import com.smart.HealthAssistant.WebViewActivity;
 import com.smart.HealthAssistant.bean.MsgInfo;
 
 import java.util.ArrayList;
@@ -57,6 +60,15 @@ public class MsgInfoAdapter extends BaseAdapter {
         holer.mPic.setBackgroundResource(msgInfo.getmPicId());
         holer.mTitle.setText(msgInfo.getTitle());
         holer.mContent.setText(msgInfo.getContent());
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(mContext,WebViewActivity.class);
+                intent.putExtra("url",msgInfo.getUrl());
+                mContext.startActivity(intent);
+            }
+        });
         return view;
     }
 

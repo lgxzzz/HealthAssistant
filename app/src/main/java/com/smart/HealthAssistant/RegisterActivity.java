@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.smart.elevator.bean.User;
-import com.smart.elevator.data.DBManger;
+import com.smart.HealthAssistant.bean.User;
+import com.smart.HealthAssistant.data.DBManger;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -19,8 +19,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mNameEd;
     private EditText mPassWordEd;
     private EditText mRepeatPassWordEd;
-    private EditText mTelEd;
-    private EditText mMailEd;
     private Button mRegBtn;
 
     private User mUser;
@@ -40,8 +38,6 @@ public class RegisterActivity extends AppCompatActivity {
         mNameEd = findViewById(R.id.reg_name_ed);
         mPassWordEd = findViewById(R.id.reg_password_ed);
         mRepeatPassWordEd = findViewById(R.id.reg_repeat_password_ed);
-        mTelEd = findViewById(R.id.reg_phone_ed);
-        mMailEd = findViewById(R.id.reg_mail_ed);
         mRegBtn = findViewById(R.id.reg_btn);
 
         mNameEd.addTextChangedListener(new TextWatcher() {
@@ -92,41 +88,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 mUser.setRepeatPassword(editable.toString());
-            }
-        });
-
-        mTelEd.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                mUser.setTelephone(editable.toString());
-            }
-        });
-
-
-        mMailEd.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                mUser.setMail(editable.toString());
             }
         });
 
