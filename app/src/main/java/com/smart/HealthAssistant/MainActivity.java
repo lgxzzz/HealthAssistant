@@ -1,5 +1,6 @@
 package com.smart.HealthAssistant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,6 +10,7 @@ import com.smart.HealthAssistant.fragment.AlarmFragment;
 import com.smart.HealthAssistant.fragment.DataFragment;
 import com.smart.HealthAssistant.fragment.HomeFragment;
 import com.smart.HealthAssistant.fragment.MonitorFragment;
+import com.smart.HealthAssistant.service.HealthAssitantService;
 import com.smart.HealthAssistant.util.FragmentUtils;
 
 public class MainActivity extends BaseActivtiy {
@@ -22,7 +24,7 @@ public class MainActivity extends BaseActivtiy {
 
         init();
 
-
+        startService(new Intent(this, HealthAssitantService.class));
     }
 
     public void init(){

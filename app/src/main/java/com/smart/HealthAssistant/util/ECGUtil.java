@@ -2,16 +2,22 @@ package com.smart.HealthAssistant.util;
 
 import android.widget.TextView;
 
+import com.smart.HealthAssistant.bean.Temp;
 import com.smart.HealthAssistant.view.ECGView;
 import com.smart.HealthAssistant.view.TempView;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class ECGUtil {
+    public static List<Temp> mTemps = new ArrayList<>();
     private Timer timer;
     private TimerTask timerTask;
     /**
@@ -37,9 +43,13 @@ public class ECGUtil {
         timerTask = new TimerTask() {
             @Override
             public void run() {
-                float value = new Random().nextFloat()*(6)+35f;
+                int value = new Random().nextInt(6)+35;
                 view.showLine(value);//取得是35-41间的浮点数
                 if (listner!=null){
+                    Temp temp =new Temp();
+                    temp.setValue(value);
+                    temp.setTime(getDateTime());
+                    mTemps.add(temp);
                     listner.onTempChange(value);
                 }
             }
@@ -74,7 +84,14 @@ public class ECGUtil {
     }
 
     public interface IDataChangeListner{
-        public void onTempChange(float value);
+        public void onTempChange(int value);
+    }
+
+    public String getDateTime(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
+        String dateStr = simpleDateFormat.format(date);
+        return dateStr;
     }
 }
 

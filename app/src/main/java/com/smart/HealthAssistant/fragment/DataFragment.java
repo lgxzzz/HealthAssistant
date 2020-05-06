@@ -7,11 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.smart.HealthAssistant.R;
+import com.smart.HealthAssistant.util.FileHelper;
 
 
 public class DataFragment extends Fragment{
+
+    TextView mSavePathTv;
+    Button mSaveDataBtn;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,7 +38,14 @@ public class DataFragment extends Fragment{
     }
 
     public void initView(View view){
-
+        mSavePathTv = view.findViewById(R.id.data_save_path_tv);
+        mSaveDataBtn = view.findViewById(R.id.data_save_btn);
+        mSaveDataBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FileHelper.saveFile();
+            }
+        });
     };
 
     public void initData() {

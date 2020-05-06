@@ -1,5 +1,6 @@
 package com.smart.HealthAssistant.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.smart.HealthAssistant.R;
+import com.smart.HealthAssistant.constant.Constant;
 import com.smart.HealthAssistant.util.ECGUtil;
 import com.smart.HealthAssistant.view.ECGView;
 import com.smart.HealthAssistant.view.TempView;
@@ -81,11 +83,12 @@ public class MonitorFragment extends Fragment{
 
         mEcgUtil.setListner(new ECGUtil.IDataChangeListner() {
             @Override
-            public void onTempChange(final float value) {
+            public void onTempChange(final int value) {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
                         mTempTv.setText("体温："+value+"C");
+                        notifyTempState(value);
                     }
                 });
             }
@@ -98,6 +101,12 @@ public class MonitorFragment extends Fragment{
     public void startECG() {
         mEcgUtil.showECGData(mECGView);
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        stop();
     }
 
     //开始绘制波形
@@ -119,5 +128,16 @@ public class MonitorFragment extends Fragment{
 
     public Handler mHandler = new Handler();
 
+    //通知后台服务里面的监听器
+    public void notifyTempState(int temp){
+        if (getContext()!=null){
+            Intent intent = new Intent();
+            intent.setAction(Constant.HEALTH_ASSISANT_NOTIFY_STATE);
+            intent.putExtra("temp",temp);
+            intent.putExtra("timestamp",System.currentTimeMillis());
+            getContext().sendBroadcast(intent);
+        }
+
+    }
 
 }
