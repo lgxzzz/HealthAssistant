@@ -43,7 +43,7 @@ public class FileHelper {
             FileOutputStream outStream = new FileOutputStream(name,true);
             OutputStreamWriter writer = new OutputStreamWriter(outStream,"UTF-8");
             writer.write(content);
-            writer.write("/n");
+            writer.write("\r\n");
             writer.flush();
             writer.close();//记得关闭
 

@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:text="设置报警触发温度"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         />
     <EditText
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:inputType="number"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/alarm_temp_ed"
         />
 
@@ -35,7 +35,7 @@
         android:textSize="20dp"
         android:text="保存温度"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/alarm_temp_btn"
         />
     <TextView
@@ -43,9 +43,9 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:text="设置报警手机号码"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         />
     <EditText
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:inputType="number"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/first_tel_ed"
         />
     <Button
@@ -64,7 +64,7 @@
         android:textSize="20dp"
         android:text="设置号码一"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/first_tel_btn"
         />
     <EditText
@@ -75,8 +75,9 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:inputType="number"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/sec_tel_ed"
+        android:visibility="gone"
         />
     <Button
         android:layout_width="wrap_content"
@@ -84,7 +85,8 @@
         android:textSize="20dp"
         android:text="设置号码二"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/sec_tel_btn"
+        android:visibility="gone"
         />
 </LinearLayout>

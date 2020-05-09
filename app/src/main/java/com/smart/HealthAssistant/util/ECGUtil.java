@@ -28,7 +28,11 @@ public class ECGUtil {
         timerTask = new TimerTask() {
             @Override
             public void run() {
-                view.showLine(new Random().nextFloat()*(40f)-20f);//取得是-20到20间的浮点数
+                int value = (int)(new Random().nextFloat()*(50)+180);
+                view.showLine(value);//取得是-20到20间的浮点数
+                if (listner!=null){
+                    listner.onEcgChange(value);
+                }
             }
         };
         //500表示调用schedule方法后等待500ms后调用run方法，50表示以后调用run方法的时间间隔
@@ -47,7 +51,7 @@ public class ECGUtil {
                 view.showLine(value);//取得是35-41间的浮点数
                 if (listner!=null){
                     Temp temp =new Temp();
-                    temp.setValue(value);
+                    temp.setValue(value+"");
                     temp.setTime(getDateTime());
                     mTemps.add(temp);
                     listner.onTempChange(value);
@@ -85,6 +89,7 @@ public class ECGUtil {
 
     public interface IDataChangeListner{
         public void onTempChange(int value);
+        public void onEcgChange(float value);
     }
 
     public String getDateTime(){

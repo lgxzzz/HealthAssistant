@@ -2,7 +2,7 @@ package com.smart.HealthAssistant.bean;
 
 public class Temp {
     String time;
-    int value;
+    String value;
 
     public String getTime() {
         return time;
@@ -12,11 +12,11 @@ public class Temp {
         this.time = time;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(String value) {
         this.value = value;
     }
 }

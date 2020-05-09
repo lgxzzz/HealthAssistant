@@ -92,6 +92,16 @@ public class MonitorFragment extends Fragment{
                     }
                 });
             }
+
+            @Override
+            public void onEcgChange(final float value) {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mECGTv.setText("脉搏："+value+"次/分");
+                    }
+                });
+            }
         });
 
         startECG();

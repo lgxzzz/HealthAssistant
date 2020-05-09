@@ -23,7 +23,7 @@ public class ECGView extends View {
     private int row;//背景网格的行数和列数
 
     //心电
-    private float MAX_VALUE = 20;
+    private float MAX_VALUE = 230;
     private float WAVE_LINE_STROKE_WIDTH = 2;
     private int mWaveLineColor = Color.parseColor("#EE4000");//波形颜色
     private  float nowX,nowY;//目前的xy坐标
@@ -107,16 +107,16 @@ public class ECGView extends View {
         for (int i = 0;i<refreshList.size();i++){
             nowX = i* GRID_SMALL_WIDTH;
             float dataValue = (float) refreshList.get(i);
-            if(dataValue>0){
-                if(dataValue>MAX_VALUE * 0.8){
-                    dataValue = MAX_VALUE * 0.8f;
-                }
-            }else {
-                if(dataValue< -MAX_VALUE * 0.8){
-                    dataValue = -MAX_VALUE * 0.8f;
-                }
-            }
-            nowY = mHeight/2 + dataValue *(mHeight/(MAX_VALUE*2));
+//            if(dataValue>0){
+//                if(dataValue>MAX_VALUE * 0.8){
+//                    dataValue = MAX_VALUE * 0.8f;
+//                }
+//            }else {
+//                if(dataValue< -MAX_VALUE * 0.8){
+//                    dataValue = -MAX_VALUE * 0.8f;
+//                }
+//            }
+            nowY = mHeight/3 + dataValue *(mHeight/(MAX_VALUE*2));
             mPath.lineTo(nowX,nowY);
         }
         canvas.drawPath(mPath, mWavePaint);
